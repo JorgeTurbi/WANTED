@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="WantedModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Interpol">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_Pila" Type="varchar" MaxLength="300" />
+          <Property Name="Nombre" Type="varchar(max)" />
+          <Property Name="Fecha_Nacimiento" Type="varchar" MaxLength="300" />
+          <Property Name="entity_id" Type="varchar" MaxLength="300" />
+          <Property Name="Nacionalidad" Type="varchar" MaxLength="300" />
+          <Property Name="Nacionalidad2" Type="varchar" MaxLength="300" />
+          <Property Name="LinkImagen" Type="varchar" MaxLength="300" />
+          <Property Name="LinkServicio" Type="varchar" MaxLength="300" />
+          <Property Name="Pais_Incidente" Type="varchar" MaxLength="300" />
+          <Property Name="Idioma_Hablado" Type="varchar" MaxLength="300" />
+          <Property Name="Cargos" Type="varchar(max)" />
+          <Property Name="Interpretacion_Cargos" Type="varchar(max)" />
+          <Property Name="Peso_Corporal" Type="varchar" MaxLength="300" />
+          <Property Name="Altura" Type="varchar" MaxLength="300" />
+          <Property Name="Genero" Type="varchar" MaxLength="300" />
+          <Property Name="Pais_Nacimiento" Type="varchar" MaxLength="300" />
+          <Property Name="Lugar_Nacimiento" Type="varchar" MaxLength="300" />
+          <Property Name="Marcas_Distintivas" Type="varchar" MaxLength="300" />
+          <Property Name="Codigo_Color_Ojos" Type="varchar" MaxLength="300" />
+          <Property Name="Codigo_Color_Cabello" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="Intl_Buscados">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar(max)" />
+          <Property Name="Detalle" Type="varchar(max)" />
+          <Property Name="Link_Imagen" Type="varchar(max)" />
+          <Property Name="Genero" Type="varchar" MaxLength="100" />
+          <Property Name="Nacionalidad" Type="varchar(max)" />
+          <Property Name="Edad_Minima" Type="varchar" MaxLength="100" />
+          <Property Name="Categoria" Type="varchar(max)" />
+          <Property Name="Lugar_Nacimiento" Type="varchar" MaxLength="200" />
+          <Property Name="Rango_Edad" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha_Nacimiento" Type="varchar(max)" />
+          <Property Name="Observaciones" Type="varchar(max)" />
+        </EntityType>
+        <EntityContainer Name="WantedModelStoreContainer">
+          <EntitySet Name="Interpol" EntityType="Self.Interpol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Intl_Buscados" EntityType="Self.Intl_Buscados" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WantedModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Interpol">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_Pila" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Nacimiento" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="entity_id" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Nacionalidad" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Nacionalidad2" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="LinkImagen" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="LinkServicio" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Pais_Incidente" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Idioma_Hablado" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Cargos" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Interpretacion_Cargos" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Peso_Corporal" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Altura" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Genero" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Pais_Nacimiento" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Lugar_Nacimiento" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Marcas_Distintivas" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Codigo_Color_Ojos" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Codigo_Color_Cabello" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Intl_Buscados">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Detalle" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Link_Imagen" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Genero" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Nacionalidad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Edad_Minima" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Categoria" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Lugar_Nacimiento" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Rango_Edad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Nacimiento" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="CONEXION" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Interpol" EntityType="Self.Interpol" />
+          <EntitySet Name="Intl_Buscados" EntityType="Self.Intl_Buscados" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WantedModelStoreContainer" CdmEntityContainer="CONEXION">
+          <EntitySetMapping Name="Interpol">
+            <EntityTypeMapping TypeName="WantedModel.Interpol">
+              <MappingFragment StoreEntitySet="Interpol">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre_Pila" ColumnName="Nombre_Pila" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Fecha_Nacimiento" ColumnName="Fecha_Nacimiento" />
+                <ScalarProperty Name="entity_id" ColumnName="entity_id" />
+                <ScalarProperty Name="Nacionalidad" ColumnName="Nacionalidad" />
+                <ScalarProperty Name="Nacionalidad2" ColumnName="Nacionalidad2" />
+                <ScalarProperty Name="LinkImagen" ColumnName="LinkImagen" />
+                <ScalarProperty Name="LinkServicio" ColumnName="LinkServicio" />
+                <ScalarProperty Name="Pais_Incidente" ColumnName="Pais_Incidente" />
+                <ScalarProperty Name="Idioma_Hablado" ColumnName="Idioma_Hablado" />
+                <ScalarProperty Name="Cargos" ColumnName="Cargos" />
+                <ScalarProperty Name="Interpretacion_Cargos" ColumnName="Interpretacion_Cargos" />
+                <ScalarProperty Name="Peso_Corporal" ColumnName="Peso_Corporal" />
+                <ScalarProperty Name="Altura" ColumnName="Altura" />
+                <ScalarProperty Name="Genero" ColumnName="Genero" />
+                <ScalarProperty Name="Pais_Nacimiento" ColumnName="Pais_Nacimiento" />
+                <ScalarProperty Name="Lugar_Nacimiento" ColumnName="Lugar_Nacimiento" />
+                <ScalarProperty Name="Marcas_Distintivas" ColumnName="Marcas_Distintivas" />
+                <ScalarProperty Name="Codigo_Color_Ojos" ColumnName="Codigo_Color_Ojos" />
+                <ScalarProperty Name="Codigo_Color_Cabello" ColumnName="Codigo_Color_Cabello" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Intl_Buscados">
+            <EntityTypeMapping TypeName="WantedModel.Intl_Buscados">
+              <MappingFragment StoreEntitySet="Intl_Buscados">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="Detalle" ColumnName="Detalle" />
+                <ScalarProperty Name="Link_Imagen" ColumnName="Link_Imagen" />
+                <ScalarProperty Name="Genero" ColumnName="Genero" />
+                <ScalarProperty Name="Nacionalidad" ColumnName="Nacionalidad" />
+                <ScalarProperty Name="Edad_Minima" ColumnName="Edad_Minima" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+                <ScalarProperty Name="Lugar_Nacimiento" ColumnName="Lugar_Nacimiento" />
+                <ScalarProperty Name="Rango_Edad" ColumnName="Rango_Edad" />
+                <ScalarProperty Name="Fecha_Nacimiento" ColumnName="Fecha_Nacimiento" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
