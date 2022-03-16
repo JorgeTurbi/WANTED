@@ -1,120 +1,160 @@
-﻿@model List<WANTED.Models.Intl_Buscados>
-
+﻿@model List<WANTED.Models.Interpol>
 @{
-    ViewBag.Title = "Home Page";
+    Layout = null;
 }
-<style>
-    .buscados{
-        display:flex;
-        justify-content:center;
-      
-        flex-direction:row;
-        flex-wrap:wrap
-
-    }
-    .card{
-        width:20rem;
-    }
-    .card-body {
-        max-height: 15rem;
-        overflow: hidden;
-    }
-    a {
-        box-shadow: inset 0 0 0 0 #54b3d6;
-        color: #54b3d6;
-        padding: 0 .25rem;
-        margin: 0 -.25rem;
-        transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
-    }
-
-        a:hover {
-            color: #fff;
-            box-shadow: inset 200px 0 0 0 #54b3d6;
-            
-        }
-
-    /* Presentational styles */
-    a {
-        color: #54b3d6;
-        font-family: 'Poppins', sans-serif;
-        font-size: 12px;
-       
-      /*  line-height: 1.5;*/
-        text-decoration: none;
-    }
-
-    body {
-        display: grid;
-        height: 100vh;
-        place-items: center;
-    }
-
-</style>
-<div class="row">
-    <div class="col-12">
-        
-    </div>
-</div>
-<div class="contenedor mt-5" id="home">
-
-    <div class="buscados">
-        @foreach (var item in Model)
-        {
-
-            <div class="card mb-3">
-                <h5 class="card-title text-center text-danger">@item.Categoria</h5>
-                @*<img src="@item.Link_Imagen" width="20" height="90" class="card-img" alt="...">*@
-                <div class="card-body">
-                    <a href="#" class="link-primary">@item.nombre</a>                    
-
-                </div>
-            </div>
-
-        }
-    </div>
-
-  
-       
 
 
+<!DOCTYPE html>
 
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Mas buscados Interpol</title>
+    <link href="~/Assets/css/buscado.css" rel="stylesheet" />
+</head>
 
-
-
-
-
-
-
-    @*@foreach (var item in Model)
-        {
-        <div class="contenido mb-5 mt-5">
-            <div>
-                <h3>@item.Categoria</h3>
-                <div class="card mb-3" style="max-width: 540px;">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="@item.Link_Imagen" width="150" height="200" class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">@item.nombre</h5>
-                                <p class="card-text">
-                                    @Html.Raw(item.Observaciones)
-                                </p>
-                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                            </div>
-                        </div>
+<body class="overview">
+  <div class="sidebar sb-left">
+    <nav class="mobile-nav">
+      <ul>
+        <li class="active"><a href="https://codepen.io/vincenzopiromalli/pen/OJNyeKN"><i class="fa fa-film"></i><span>Latest</span></a></li>
+        <li><a href="/genre/in-theaters/"><i class="fa fa-ticket"></i><span>In Theaters</span></a></li>
+        <li><a href="/top/"><i class="fa fa-trophy"></i><span>Top</span></a></li>
+        <li><a href="/random/"><i class="fa fa-random"></i><span>Random</span></a></li>
+        <li><a href="/genre/tv-series/"><i class="fa fa-desktop"></i><span>TV Series</span></a></li>
+        <li><a href="/contact/"><i class="fa fa-envelope"></i><span>Contact us</span></a></li>
+        <li><a href="/feed"><i class="fa fa-rss"></i><span>Feed</span></a></li>
+      </ul>
+    </nav>
+  </div>
+  <div id="site-container">
+    <main id="main">
+      <header id="main-header">
+        <div class="inner-container">
+          <div class="sb-toggle-left">
+            <span class="menu-icon"></span>
+            <span class="menu-icon-text">Menu</span>
+          </div>
+          <h1><a href="https://codepen.io/vincenzopiromalli/pen/OJNyeKN" class="logo">MovieWP</a></h1>
+          <ul class="header-nav">
+            <li><a href="https://facebook.com/" target="_blank" rel="nofollow"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="https://twitter.com" target="_blank" rel="nofollow"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://www.instagram.com/" target="_blank" rel="nofollow"><i class="fa fa-instagram"></i></a></li>
+          </ul>
+        </div>
+      </header>
+      <div id="header-secondary">
+        <div class="inner-container">
+          <nav class="filters">
+            <ul>
+              <li class="dropdown genre-filter">
+                <div class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Genre<i class="fa fa-angle-down"></i></div>
+                <ul class="dropdown-menu dropdown-menu-large">
+                  <li><a href="/genre/anime/">Anime</a></li>
+                  <li><a href="/genre/animation/">Animation</a></li>
+                  <li><a href="/genre/adventure/">Adventure</a></li>
+                  <li><a href="/genre/action/">Action</a></li>           
+                </ul>
+              </li>
+              <li class="dropdown quality-filter">
+                <div class="dropdown-toggle" data-toggle="dropdown">Year<i class="fa fa-angle-down"></i></div>
+                <ul class="dropdown-menu">
+                  <li><a href="/years/2020">2020</a></li>
+                  <li><a href="/years/2019">2019</a></li>
+                  <li><a href="/years/2018">2018</a></li>     
+                </ul>
+              </li>
+              <li class="dropdown quality-filter">
+                <div class="dropdown-toggle" data-toggle="dropdown">Country<i class="fa fa-angle-down"></i></div>
+                <ul class="dropdown-menu">
+                  <li><a href="/country/argentina/">Argentina</a></li>
+                  <li><a href="/country/australia/">Australia </a></li>
+                  <li><a href="/country/canada/">Canada</a></li>
+                  <li><a href="/country/china/">China</a></li>
+                  <li><a href="/country/france/">France</a></li>
+                  <li><a href="/country/germany/">Germany</a></li>
+                  <li><a href="/country/india/">India</a></li>
+                  <li><a href="/country/italy/">Italy</a></li>
+                  <li><a href="/country/spain/">Spain</a></li>
+                  <li><a href="/country/south-korea/">Korea</a></li>
+                  <li><a href="/country/uk/">United Kingdom</a></li>
+                  <li><a href="/country/usa/">USA</a></li>
+                </ul>
+              </li>
+              <li class="dropdown abc-filter">
+                <div class="dropdown-toggle" data-toggle="dropdown">ABC<i class="fa fa-angle-down"></i></div>
+                <ul class="dropdown-menu">
+                  <li class="abc"><a href="/?ap=numeric">#</a></li>
+                  <li class="abc"><a href="/?ap=A">A</a></li>
+                  <li class="abc"><a href="/?ap=B">B</a></li>
+                
+                </ul>
+              </li>
+              <li class="search">
+                <form method="get" role="form" id="searchform" autocomplete="off" action="">
+                  <i class="fa fa-search"></i>
+                  <input id="search" name="s" type="search" class="search-input" value="" placeholder="Search...">
+                </form>
+                <div class="live-search"></div>
+              </li>
+            </ul>
+          </nav>
+          <p id="slogan">Los mas buscados por la interpol</p>
+        </div>
+      </div>
+      <section id="content" class="inner-container">
+        <div class="cookie-message notice show">
+          <div class="notice-icon"><i class="fa fa-info-circle"></i></div>
+           <p id="slogan">Los mas buscados por la interpol</p>
+          <div class="close-notice"><i>x</i></div>
+        </div>
+        <div class="item-container">
+            @foreach (var item in Model)
+            {
+                string imageBase64 = Convert.ToBase64String(item.Imagen);
+                string imageSrc = string.Format("data:image/jpg;base64,{0}", imageBase64);
+          <div class="item">
+            <a href="#">
+              <div class="item-flip">
+                <div class="item-inner">
+                  <img src="@imageSrc" alt="Archive">
+                    <div class="row mt-2">
+                        <p>@item.Nombre_Pila &nbsp; @item.Nombre</p>
                     </div>
                 </div>
-            </div>
+                <div class="item-details">
+                  <div class="item-details-inner">
+                    <h2 class="movie-title">@item.Nombre_Pila &nbsp; @item.Nombre</h2>
+                    <p class="movie-description">@item.entity_id:@item.Cargos</p>
+                    <div class="watch-btn">
+                      <div class="imdb-rating" data-content="6.3">
+                        <i class="fa fa-angle-down"></i>@item.Fecha_Nacimiento
+                      </div>
+                      <span class="movie-date">@item.entity_id</span>
+                      <span>mas..</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
 
+            }
+        
+          <div class="pagination">
+            <span class="current">1</span><a href='/page/2/' class="inactive">2</a>
+            <a href='/page/3/' class="inactive">3</a>
+          </div>
+          <div class='resppages'>
+            <a href="/page/2/"><span class="fa fa-caret-right"></span>
+            </a>
+          </div>
         </div>
-                }*@
+      </section>
+    </main>
+  </div>
 
-</div>
-
-
-
-
-
-
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+    <script src="~/Assets/js/buscado.js"></script>
+</body>
+</html>

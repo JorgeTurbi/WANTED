@@ -12,6 +12,7 @@ using System.Text;
 using WANTED.Models;
 using System.Net;
 using System.IO;
+using System.Drawing;
 
 namespace WANTED.Controllers
 {
@@ -20,13 +21,13 @@ namespace WANTED.Controllers
     private byte[] content = null;
         public async Task<ActionResult> Index()
         {
-            bool respuesta =  await SaveTodisk("col");
+            //bool respuesta =  await SaveTodisk("DO");
 
 
-            List<Intl_Buscados> buscar = new List<Intl_Buscados>();
+            List<Interpol> buscar = new List<Interpol>();
             using (CONEXION db = new CONEXION())
             {
-             buscar=   db.Intl_Buscados.ToList();
+             buscar=   db.Interpol.Where(a=>a.Imagen!=null).ToList();
 
             }
              
@@ -34,6 +35,34 @@ namespace WANTED.Controllers
 
             return View(buscar);
         }
+
+
+        [HttpPost]
+        public async Task<ActionResult> Index(string _pais= "DO")
+        {
+            bool respuesta = await SaveTodisk(_pais);
+
+
+            List<Interpol> buscar = new List<Interpol>();
+            using (CONEXION db = new CONEXION())
+            {
+                buscar = db.Interpol.Where(a => a.Nacionalidad == _pais).ToList();
+
+            }
+
+
+
+            return View(buscar);
+        }
+
+
+        public JsonResult GetPais()
+        {
+
+
+            Json(,)
+        }
+
 
         public ActionResult About()
         {
@@ -459,13 +488,26 @@ namespace WANTED.Controllers
 
                         if (persona == null)
                         {
-                            db.Interpol.Add(policia);
-                            db.SaveChanges();
-                            mensaje = true;
+
                             WebClient webClient = new WebClient();
                             webClient.Headers.Add("user-agent", "Consumiendo Servicio");
                             content = webClient.DownloadData(policia.LinkImagen);
-                            SaveImg(content,policia.Id);
+                            policia.Imagen = content;   
+                            db.Interpol.Add(policia);
+                            db.SaveChanges();
+                            mensaje = true;
+                            
+                        }
+                        else
+                        {
+                            WebClient webClient = new WebClient();
+                            webClient.Headers.Add("user-agent", "Consumiendo Servicio");
+                            content = webClient.DownloadData(policia.LinkImagen);
+
+                            persona.Imagen = content;
+                            db.SaveChanges();
+                            //SaveImg(content, policia.Id);
+                            mensaje = true;
                         }
 
                     }
@@ -544,7 +586,16 @@ namespace WANTED.Controllers
 
         private ActionResult SaveImg(byte[] foto,int Id)
         {
-            
+            Image img = null;
+            using (MemoryStream memstr = new MemoryStream(foto))
+            {
+                img = Image.FromStream(memstr);
+             
+               
+            }
+
+
+
 
             return null;
         }

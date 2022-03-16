@@ -1,0 +1,144 @@
+﻿@model List<WANTED.Models.Interpol>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+<style>
+    .buscados{
+        display:flex;
+        justify-content:center;
+        justify-content:space-around;
+        flex-direction:row;
+        flex-wrap:wrap
+            
+    }
+    .card-body p {
+        overflow:hidden;
+    }
+/*    .card{
+        width:20rem;
+    }
+    .card-body {
+        max-height: 15rem;
+        overflow: hidden;
+    }*/
+/*    a {
+        box-shadow: inset 0 0 0 0 #54b3d6;
+        color: #54b3d6;
+        padding: 0 .25rem;
+        margin: 0 -.25rem;
+        transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+    }
+*/
+/*        a:hover {
+            color: #fff;
+            box-shadow: inset 200px 0 0 0 #54b3d6;
+            
+        }*/
+
+    /* Presentational styles */
+    /*a {
+        color: #54b3d6;
+        font-family: 'Poppins', sans-serif;
+        font-size: 12px;*/
+       
+      /*  line-height: 1.5;*/
+        /*text-decoration: none;
+    }*/
+
+    body {
+        display: grid;
+        height: 100vh;
+        place-items: center;
+    }
+
+</style>
+<div class="row">
+    <div class="col-12">
+        
+    </div>
+</div>
+<div class="contenedor mt-5" id="home">
+
+    <div class="buscados">
+        @foreach (var item in Model)
+        {
+
+            string imageBase64 = Convert.ToBase64String(item.Imagen);
+            string imageSrc = string.Format("data:image/gif;base64,{0}", imageBase64);
+
+            @*<div class="card mb-3">
+                <h5 class="card-title text-center text-danger">categoria</h5>
+                <img src="@imageSrc" width="20" height="150" class="card-img" alt="...">
+                <div class="card-body">
+                    <a href="#" class="link-primary">@item.Nombre_Pila &nbsp;  @item.Nombre</a>
+
+                </div>
+            </div>*@
+
+
+
+            <div class="card" style="width: 18rem;">
+                <img src="@imageSrc" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Nombre_Pila &nbsp;  @item.Nombre</h5>
+                    <p class="card-text">@item.Cargos</p>
+                    <a href="#" class="btn btn-primary">detalle..</a>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+        }
+    </div>
+
+  
+       
+
+
+
+
+
+
+
+
+
+
+    @*@foreach (var item in Model)
+        {
+        <div class="contenido mb-5 mt-5">
+            <div>
+                <h3>@item.Categoria</h3>
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="@item.Link_Imagen" width="150" height="200" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">@item.nombre</h5>
+                                <p class="card-text">
+                                    @Html.Raw(item.Observaciones)
+                                </p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+                }*@
+
+</div>
+
+
+
+
+
+
